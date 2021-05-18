@@ -12,6 +12,14 @@
 
 
 <?php
+    include("./template/header.php");
 
+    include("./template/navigation.php");
+
+    include("./pages/{$_GET["folder"]}/{$_GET["file"]}.php");
+
+    include("./template/footer.php");
+
+    include("./template/footer.php");
 
 ?>
