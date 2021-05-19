@@ -6,13 +6,13 @@
     <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <title>Planning in Love</title>
 </head>
-<?php
-    include("./template/header.php");
 
-    include("./template/main.php");
+<?php include("./template/header.php"); ?>
 
-    include("./template/footer.php");
-?>
+<?php include("./template/main.php"); ?>
+
+<?php include("./template/footer.php"); ?>
+
 </html>
 
 

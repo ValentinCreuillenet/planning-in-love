@@ -1,5 +1,4 @@
 <header class="bg-gray-400 font-sans leading-normal tracking-normal">
-
 	<nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
 		<div class="flex items-center flex-shrink-0 text-white mr-6">
 			<a class="text-white no-underline hover:text-white hover:no-underline" href="#">
@@ -33,17 +32,4 @@
 			</ul>
 		</div>
 	</nav>
-
-	<!--Container-->
-	<div class="container shadow-lg mx-auto bg-white mt-24 md:mt-18">
-
-	</div>
-
-	<script>
-		//Javascript to toggle the menu
-		document.getElementById('nav-toggle').onclick = function(){
-			document.getElementById("nav-content").classList.toggle("hidden");
-		}
-	</script>
-
 </header>

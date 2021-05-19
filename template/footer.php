@@ -16,11 +16,11 @@
 						<h3 class="font-bold text-gray-900">Social</h3>
 						<ul class="list-reset items-center text-sm pt-3">
 							<li>
-								<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="https://fondespierre.com/nos-poles-de-competences/beweb-ecole-numerique/developpeur-web/" target="_blank">Fondespierre</a>
+								<a class="inline-block text-gray-600 no-underline hover:text-gray-900 hover:text-underline py-1" href="https://fondespierre.com/nos-poles-de-competences/beweb-ecole-numerique/" target="_blank">Fondespierre</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
+</footer>
