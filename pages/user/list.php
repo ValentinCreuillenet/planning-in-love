@@ -1,5 +1,9 @@
 <?php
 
-echo "user list";
+include("./sources/users.php");
+
+function showUserCard($user){
+
+}
 
 ?>
