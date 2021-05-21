@@ -3,7 +3,7 @@
 <?php 
 
     if(!isset($_GET["id"])){
-    include("./pages/error.php");
+    	$id=0;
     } else {
         $id = $_GET["id"];
     }
@@ -60,11 +60,8 @@
 	</div>
 	
 
-
 </div>
-
-	
-	
 </body>
+
 
 <?php } ?>

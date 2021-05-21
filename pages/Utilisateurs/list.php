@@ -3,7 +3,7 @@
 <style>
 .container{
     margin-top:100px;
-    margin-bottom:2em;
+    margin-bottom:100px;
     display:flex;
     justify-content: space-around;
 }
@@ -17,7 +17,7 @@
         <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2"><?=$user["firstname"]." ".$user["lastname"]?></div>
         <p class="text-grey-darker text-base"><?=$user["mail"]?></p>
-        <a class="text-grey-darker text-base font-bold" href=<? echo "./?folder=user&file=detail&id=".$user["id"] ?>>Détails</a>
+        <a class="text-grey-darker text-base font-bold" href=<? echo "./?folder=Utilisateurs&file=detail&id=".$user["id"] ?>>Détails</a>
         </div>
         </div>
     <? endforeach ?>
