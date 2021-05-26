@@ -1,51 +1,34 @@
 <?php
 
-$users = [
-        [
-            "id"=>"1",
-            "firstname"=>"Fluflu",
-            "lastname"=>"Pompon",
-            "username"=>"Fluff",
-            "password"=>"1234",
-            "mail"=>"fluflupompon@gromail.gro",
-            "logo"=>"./sources/images/Fluflumpomon.png",
-        ],
-        [
-            "id"=>"2",
-            "firstname"=>"Alain",
-            "lastname"=>"Juppépé",
-            "username"=>"Pépé",
-            "password"=>"1234",
-            "mail"=>"alainjuppépé@gromail.gro",
-            "logo"=>"./sources/images/Alainjuppépé.png",
-        ],
-        [
-            "id"=>"3",
-            "firstname"=>"Jeanjean",
-            "lastname"=>"Bougnette",
-            "username"=>"Jiji",
-            "password"=>"1234",
-            "mail"=>"jeanlejean@gromail.gro",
-            "logo"=>"./sources/images/Jeanlejean_Bougnette.png",
-        ],
-        [
-            "id"=>"4",
-            "firstname"=>"François",
-            "lastname"=>"Groland",
-            "username"=>"Pépito",
-            "password"=>"1234",
-            "mail"=>"françoisgroland@gromail.con",
-            "logo"=>"./sources/images/Francois_groland.jpg",
-        ],
-        [
-            "id"=>"5",
-            "firstname"=>"Jodelyne",
-            "lastname"=>"Biraton",
-            "username"=>"Josianne",
-            "password"=>"1234",
-            "mail"=>"jodelynebiraton@gromail.con",
-            "logo"=>"./sources/images/Jodelyne_Biraton.png",
-        ]
-];
+include("./sources/data/PDO.php");
+
+
+
+function getUsercards($offset,$pdo){
+
+  $users=[];
+
+  $query = "SELECT firstname, lastname, mail, logo, id FROM user LIMIT {$offset},50";
+  $stmt = $pdo->prepare($query);
+  $stmt->execute();
+
+  foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $user) {
+    array_push($users,$user);
+  }
+
+  return $users;
+
+}
+
+function getUserById($id,$pdo){
+
+  $query = "SELECT * FROM user WHERE id=$id";
+  $stmt = $pdo->prepare($query);
+  $stmt->execute();
+
+  return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+
+}
+
 
 ?>

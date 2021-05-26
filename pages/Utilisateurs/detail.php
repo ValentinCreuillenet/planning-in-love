@@ -1,25 +1,31 @@
-<?php include("./sources/users.php") ?>
+<!-- Ce script affiche les detail de 1 utilisateur-->
+
+<!--Ou récupère le script qui va effectuer toute les actions sur les utilisateurs -->
+
+<?php include("./sources/data/users.php") ?>
 
 <?php 
 
-    if(!isset($_GET["id"])){
-    	$id=0;
-    } else {
-        $id = $_GET["id"];
-    }
+	//On vérifie si un id a bien été passé en param, sinon on prends 0 par default
+	$id = isset($_GET["id"]) ? $_GET["id"] : 0;
 
-    $userToDisplay;
+	//On récupère tout les informations de l'utilisateur a afficher
+    $userToDisplay = getUserById($id,$pdo);
 
+	//On vérifie si l'id de l'utilisateur correspond bien a un utilisateur dans la BDD
     foreach($users as $user){
         if($user["id"] == $id){
             $userToDisplay = $user;
         }
     }
 
+	//Si l'id ne corrsepond pas on affiche un message d'erreur
     if(!$userToDisplay){
         include("./pages/error.php");
     } else { ?>
 
+
+<!-- Affichage des détails de l'utilisateur -->
 <body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
 
 
@@ -42,11 +48,6 @@
 				  Demander en ami
 				</button> 
 			</div>
-
-			
-			
-			<!-- Use https://simpleicons.org/ to find the svg for your preferred product --> 
-
 		</div>
 
 	</div>
@@ -54,7 +55,7 @@
 	<!--Img Col-->
 	<div class="w-full lg:w-2/5">
 		<!-- Big profile image for side bar (desktop) -->
-		<img src=<?=$userToDisplay["logo"]?> class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+		<img src=<?=explode("?",$userToDisplay["logo"])[0]?> class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
 		<!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
 		
 	</div>

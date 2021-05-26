@@ -5,7 +5,7 @@
  */
 
 //On récupère d'abord les sources
-include("./sources/paths.php");
+include("./sources/data/paths.php");
 
 //Si il n'y a pas de parmaètres dans l'URL on charge le dashboard
 if(count($_GET) == 0){

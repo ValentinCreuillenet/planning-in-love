@@ -38,6 +38,8 @@
 
 </style>
 
+<?php include("./sources/core/HTML-maker.php") ?>
+
 <header class="bg-gray-400 font-sans leading-normal tracking-normal">
 	<nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
 		<div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -54,21 +56,9 @@
 
 		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
 			<ul class="list-reset lg:flex justify-end flex-1 items-center">
-				<?php foreach (scandir("./pages") as $pages) : ?>
-			<? if(is_dir("./pages/{$pages}") && $pages != "." && $pages != "..") : ?>
-			<div class="dropdown">
-				<li class="mr-3">
-					<a class="dropbtn inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"><?= $pages ?></a>
-					<div class="dropdown-content">
-					<?php foreach(scandir("./pages/{$pages}") as $page) : ?>
-						<? if($page != "." && $page != "..") : ?>
-							<a href= <?= "./?folder={$pages}&file=".rtrim($page,".php") ?> ><?= rtrim($page,".php") ?></a>
-						<? endif ?>
-					<? endforeach ?>
-				</li>
-			</div>
-			<? endif ?>
-			<? endforeach ?>
+
+			<?= generateNavbar() ?>
+			
 			</ul>
 		</div>
 	</nav>
