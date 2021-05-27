@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://unpkg.com/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
-</head>
+
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
     <body>
     <section class="min-h-screen flex items-stretch text-white ">
@@ -29,7 +22,7 @@
                   
                 </div>
                 
-                <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                <form action="#" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto" method="post">
                     <div class="pb-2 pt-4">
                         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" class="block w-full p-4 text-lg rounded-sm bg-black">
                     </div>
@@ -40,10 +33,19 @@
                         <a href="#">Mot de passe oublié?</a>
                     </div>
                     <div class="px-4 pb-2 pt-4">
-                        <button class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Se connecter</button>
+                        <input type="submit" value="Se connecter" class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">
                     </div>
 
-                    <div class="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden ">
+                    <?php if(isset($_GET['content'])): ?>
+                    <?php if($_GET['content'] == "error"): ?>
+
+                    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+                        <p class="font-bold">Erreur</p>
+                        <p>Mot de passe/Nom d'utilisateur incorrect</p>
+                    </div>
+
+                    <? endif ?>
+                    <? endif ?>
                     
                     </div>
                 </form>

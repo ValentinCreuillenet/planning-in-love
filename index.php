@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['id']))include("./sources/core/authentication/verification.php");
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,11 +12,14 @@
     <title>Planning in Love</title>
 </head>
 
-<?php include("./template/header.php"); ?>
+<?php if(isset($_SESSION["id"]))include("./template/header.php");?>
 
-<?php include("./template/main.php"); ?>
+<?php
+ if(isset($_SESSION["id"]))include("./template/main.php");
+ else include("./pages/login.php");
+?>
 
-<?php include("./template/footer.php"); ?>
+<?php if(isset($_SESSION["id"]))include("./template/footer.php"); ?>
 
 </html>
 
