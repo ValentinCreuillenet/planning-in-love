@@ -1,5 +1,12 @@
 <?php
     session_start();
+
+    if(isset($_GET['action'])){
+        if($_GET['action'] == "reset") 
+        session_unset();
+    }
+
+
     if(!isset($_SESSION['id']))include("./sources/core/authentication/verification.php");
 ?>
 

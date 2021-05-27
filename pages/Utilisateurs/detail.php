@@ -10,14 +10,8 @@
 	$id = isset($_GET["id"]) ? $_GET["id"] : 0;
 
 	//On récupère tout les informations de l'utilisateur a afficher
-    $userToDisplay = getUserById($id,$pdo);
+    $userToDisplay = getUserById($id);
 
-	//On vérifie si l'id de l'utilisateur correspond bien a un utilisateur dans la BDD
-    foreach($users as $user){
-        if($user["id"] == $id){
-            $userToDisplay = $user;
-        }
-    }
 
 	//Si l'id ne corrsepond pas on affiche un message d'erreur
     if(!$userToDisplay){

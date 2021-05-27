@@ -22,7 +22,7 @@
                   
                 </div>
                 
-                <form action="#" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto" method="post">
+                <form action="./" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto" method="post">
                     <div class="pb-2 pt-4">
                         <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" class="block w-full p-4 text-lg rounded-sm bg-black">
                     </div>

@@ -30,7 +30,6 @@ function getUserInfo($username,$password){
     }
     }catch (PDOException $e) {
         $e->getMessage();
-        var_dump($e);
     }
 }
 

@@ -54,11 +54,11 @@
 			</button>
 		</div>
 
-		<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
-			<ul class="list-reset lg:flex justify-start flex-1 items-center">
+		<div class="w-full p-0 flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+			<ul class="list-reset lg:flex justify-between flex-1 items-center">
 
 			<?= generateNavbar() ?>
-			
+			<?= generateAccountMenu() ?>
 			</ul>
 		</div>
 	</nav>
