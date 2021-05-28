@@ -20,7 +20,7 @@
 
 
 <!-- Affichage des détails de l'utilisateur -->
-<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover">
+<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" >
 
 
 

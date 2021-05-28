@@ -1,13 +1,5 @@
 <?php
-    session_start();
-
-    if(isset($_GET['action'])){
-        if($_GET['action'] == "reset") 
-        session_unset();
-    }
-
-
-    if(!isset($_SESSION['id']))include("./sources/core/authentication/verification.php");
+    include("./sources/core/authentication/guard.php");
 ?>
 
 <html lang="en">
@@ -19,15 +11,16 @@
     <title>Planning in Love</title>
 </head>
 
-<?php if(isset($_SESSION["id"]))include("./template/header.php");?>
+<?php if(isLogged())include("./template/header.php");?>
 
 <?php
- if(isset($_SESSION["id"]))include("./template/main.php");
+ if(isLogged())include("./template/main.php");
  else include("./pages/login.php");
 ?>
 
-<?php if(isset($_SESSION["id"]))include("./template/footer.php"); ?>
+<?php if(isLogged())include("./template/footer.php"); ?>
 
+<script type="text/javascript" src="./sources/core/DOM-manipulator.js"></script>
 </html>
 
 
