@@ -68,4 +68,5 @@ $teams = getTeamCards($offset);
     <? endforeach ?>
 </div>
 
+<?php $totalToLoad = getNumberOfTeams() ?>
 <? include_once("./template/pagination.php") ?>

@@ -4,6 +4,14 @@ $maxPage = ($totalToLoad/50);
 
 $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
 
+$currentURL =  "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+
+$modularURL = explode($offset,$currentURL)[0];
+
+if(!str_contains($modularURL, "&offset=")){
+  $modularURL.="&offset=";
+}
+
 ?>
 
 <!-- This example requires Tailwind CSS v2.0+ -->
@@ -32,7 +40,7 @@ $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
 
 
       <? if($currentPage > 1): ?>
-        <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=<?= $offset-50 ?>" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+        <a href="http://<?= $modularURL.$offset-50 ?>" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
           <span class="sr-only">Previous</span>
           <!-- Heroicon name: solid/chevron-left -->
           <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -43,7 +51,7 @@ $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
         <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
 
         <? if($currentPage > 1): ?>
-        <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=0" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+        <a href="http://<?= $modularURL."0" ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
           1
         </a>
         <? endif ?>
@@ -55,17 +63,17 @@ $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
         <? endif ?>
         
         <? if ($currentPage > 2): ?>
-          <? if($currentPage > 3): ?>
+          <? if($currentPage > 3 && $maxPage - 3 != 1): ?>
             <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
               ...
             </span>
           <? endif ?>
             <? if($currentPage == $maxPage && $maxPage > 3): ?>
-              <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=<?= $offset-100 ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+              <a href="http://<?= $modularURL.$offset-100 ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
                 <?= $currentPage - 2 ?>
               </a>
             <? endif ?>
-          <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=<?= $offset-50 ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+          <a href="http://<?= $modularURL.$offset-50 ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
             <?= $currentPage - 1 ?>
           </a>
         <? endif ?>
@@ -77,7 +85,7 @@ $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
         <? endif ?>
 
         <? if($currentPage < $maxPage-1): ?>
-          <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=<?= $offset+50 ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+          <a href="http://<?= $modularURL.$offset+50 ?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
             <?= $currentPage + 1 ?>
           </a>
           <? if($currentPage < $maxPage - 2): ?>
@@ -88,7 +96,7 @@ $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
         <? endif ?>
 
         <? if($currentPage < $maxPage): ?>
-        <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=950" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+        <a href="http://<?= $modularURL.($maxPage-1)*50?>" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
           <?= $maxPage ?>
         </a>
         <? endif ?>
@@ -100,7 +108,7 @@ $currentPage = (($offset + 50)*$maxPage)/$totalToLoad;
         <? endif ?>
 
         <? if($currentPage != $maxPage): ?>
-        <a href="http://localhost:9966/?folder=Utilisateurs&file=list&offset=<?= $offset+50 ?>" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+        <a href="http://<?= $modularURL.$offset+50 ?>" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
           <span class="sr-only">Next</span>
           <!-- Heroicon name: solid/chevron-right -->
           <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
