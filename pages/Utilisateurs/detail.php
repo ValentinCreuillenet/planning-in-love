@@ -2,7 +2,8 @@
 
 <!--Ou récupère le script qui va effectuer toute les actions sur les utilisateurs -->
 
-<?php include("./sources/data/users.php") ?>
+<?php include_once("./sources/data/users.php") ?>
+<?php include_once("./sources/core/HTML-maker.php") ?>
 
 <?php 
 
@@ -12,6 +13,9 @@
 	//On récupère tout les informations de l'utilisateur a afficher
     $userToDisplay = getUserById($id);
 
+
+	//On recupère la list des équipiers ce cet utilisateur
+	$userTeamMates = getUserTeammates($id);
 
 	//Si l'id ne corrsepond pas on affiche un message d'erreur
     if(!$userToDisplay){
@@ -56,6 +60,44 @@
 	
 
 </div>
+
+			<!-- Liste des équipiers -->
+<!---------------------------------------------------------->
+
+<!-- This example requires Tailwind CSS v2.0+ -->
+<h1 class = "text-center m-12">Liste des équipiers</h1>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Nom d'utilisateur
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Mél
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Nom de l'équipe
+              </th>
+              <th scope="col" class="relative px-6 py-3">
+                <span class="sr-only">Détails</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+          </tbody>
+		  <?php foreach ($userTeamMates as $teamMate) : ?>
+				<?= generateTeamMateCard($teamMate) ?>
+			<? endforeach ?>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 

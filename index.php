@@ -20,7 +20,7 @@
 
 <?php if(isLogged())include("./template/footer.php"); ?>
 
-<script type="text/javascript" src="./sources/core/DOM-manipulator.js"></script>
+<script src="/sources/core/DOM-manipulator.js"></script>
 </html>
 
 

@@ -29,7 +29,7 @@ if(!isset($_GET["offset"])){
     }
 
 //On récupère ensuite 50 utilisateur a afficher via cet offset
-$users = getUserCards($offset,$pdo);
+$users = getUserCards($offset);
 
 ?>
 
@@ -47,14 +47,6 @@ $users = getUserCards($offset,$pdo);
     <? endforeach ?>
 </div>
 
-<!--On défnie le prochain offset a préciser sur la page suivante-->
-<?php $nextOffset = $offset+50; ?>
+<?php $totalToLoad = getNumberOfUsers() ?>
+<? include_once($_SERVER['DOCUMENT_ROOT']."/template/pagination.php") ?>
 
-<!--On défninie l'offset précédent a préciser sur la page fe retour et si celui est inférieur a 0, on le ramène a 0-->
-<?php 
-    $previousOffset = $offset-50;
-    if($previousOffset<0)$previousOffset=0;
-?>
-
-
-<a class="text-grey-darker text-base font-bold" href=<?= "./?folder=Utilisateurs&file=list&offset={$nextOffset}"?>>Afficher plus</a>
